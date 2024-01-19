@@ -1,29 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 # Load your dataset
 df = pd.read_csv('C:\\Users\\offic\\Documents\\jobs_in_data.csv')
-
-
-# In[4]:
-
 
 # Display the first few rows of the dataset to understand its structure
 print(df.head())
 
-
-# In[6]:
-
-
 # Get a concise summary of the dataframe
 print(df.info())
-
-
-# In[8]:
-
 
 # Descriptive statistics for numeric columns
 print(df.describe())
@@ -31,17 +16,10 @@ print(df.describe())
 df['work_year'] = df['work_year'].astype(int)
 df['salary'] = df['salary'].astype(int)
 
-
-# In[9]:
-
-
 # Descriptive statistics for object (categorical) columns
 print(df.describe(include=['object']))
 
-
-# In[20]:
-
-
+import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -71,9 +49,6 @@ plt.title('Salary Distribution')
 plt.show()
 
 
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 # Define the number of top job titles you want to display
 N = 20
 
@@ -96,14 +71,6 @@ plt.title(f'Average Salary for Top {N} Job Titles')
 plt.xlabel('Average Salary')
 plt.ylabel('Job Title')
 plt.show()
-
-
-# In[23]:
-
-
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 # Assuming df is your DataFrame and it has columns 'JobTitle', 'Location', and 'Salary'
 
@@ -139,12 +106,6 @@ plt.ylabel('Employee Residence')
 plt.show()
 
 
-# In[29]:
-
-
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 # Assuming df is your DataFrame and it has columns 'job_title', 'work_setting', 'company_location', and 'salary_in_usd'
 
 # Filter top job titles if necessary
@@ -162,17 +123,7 @@ plt.xlabel('Salary in USD')
 plt.ylabel('Job Title')
 plt.show()
 
-
-# In[39]:
-
-
 pip install squarify
-
-
-# In[42]:
-
-
-import pandas as pd
 
 # Aggregate the data
 job_counts = df.groupby(['job_category', 'job_title']).size().reset_index(name='counts')
@@ -180,13 +131,7 @@ job_counts = df.groupby(['job_category', 'job_title']).size().reset_index(name='
 # Sort the job titles by counts and get the top 20
 top_job_counts = job_counts.sort_values('counts', ascending=False).head(20)
 
-
-# In[62]:
-
-
-import matplotlib.pyplot as plt
 import squarify
-import seaborn as sns
 
 # Define a function to wrap text
 def wrap_text(text, max_chars_per_line):
@@ -219,8 +164,6 @@ plt.title('Treemap of Top 20 Job Titles within Job Categories', color='white')
 plt.axis('off')
 plt.show()
 
-
-# In[ ]:
 
 
 
